@@ -1,0 +1,47 @@
+<template>
+  <div class="page" data-name="catalog">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="ios-only">Назад</span>
+          </a>
+        </div>
+        <div class="title">{{title}}</div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="list links-list cards-list">
+        <ul>
+
+          {{#each products}}
+            <li>
+              <div class="card demo-card-header-pic">
+                <div style="background-image:url({{img}})" class="card-header align-items-flex-end">{{title}}</div>
+                <div class="card-content card-content-padding">
+                  <p class="date">{{price}} рублей</p>
+                  <p>{{description}}</p>
+                </div>
+                <div class="card-footer"><a href="/product/{{id}}/" class="link">Описание</a> <a href="#" class="link">Добавить!</a></div>
+              </div>
+            </li>
+          {{/each}}
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  return {
+    data: function() {
+      var productId = this.$route.params.id;
+      console.log(this.$root.categorys[productId - 1].products);
+      return {
+        products: this.$root.categorys[productId - 1].products,
+        title: this.$root.categorys[productId - 1].title,
+      };
+    }
+  };
+</script>

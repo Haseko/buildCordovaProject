@@ -12,6 +12,6 @@
 <allow-navigation href="http://*/*" />
 <allow-intent href="https://*/*" />
 <access origin="*" />
+<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
     </widget>
-<gap:plugin name="cordova-plugin-whitelist" source="npm" />

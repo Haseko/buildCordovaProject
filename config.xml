@@ -24,6 +24,8 @@
     <feature name="InAppBrowser">
     <param name="android-package" value="org.apache.cordova.InAppBrowser"/>
     </feature>
+<allow-navigation href="http://*/*" />
+<allow-intent href="https://*/*" />
 
     <feature name="NetworkStatus">
     <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />

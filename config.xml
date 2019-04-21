@@ -9,6 +9,6 @@
 </author>
 <content src="index.html" />
 <access origin="*" />
-<gap:plugin name="org.apache.cordova.file" />
+<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
 </widget>

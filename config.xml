@@ -1,5 +1,4 @@
     <widget id="com.example.hello" version="0.0.1">
-<meta http-equiv="Content-Security-Policy" content="default-src *; style-src *  'unsafe-inline'; script-src *  'unsafe-inline'; media-src *">
         <name>HelloWorld</name>
         <description>
             A sample Apache Cordova application that responds to the deviceready event.
@@ -13,5 +12,6 @@
 <allow-navigation href="http://*/*" />
 <allow-intent href="https://*/*" />
 <access origin="*" />
-<gap:plugin name="cordova-plugin-whitelist" source="npm" />
+
     </widget>
+<gap:plugin name="cordova-plugin-whitelist" source="npm" />

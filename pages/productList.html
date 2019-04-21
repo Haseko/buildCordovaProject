@@ -1,0 +1,58 @@
+<template>
+    <div class="page" data-name="catalog">
+        <div class="navbar">
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back" onclick="app.views.main.router.navigate('/')">
+                        <i class="icon icon-back"></i>
+                        <span class="ios-only">Back</span>
+                    </a>
+                </div>
+                <div class="subnavbar">
+                    <!-- Searchbar with auto init -->
+                    <form class="searchbar" onclick="searchbar = app.searchbar.create({el: '.searchbar',searchContainer: '.list1',searchIn: '.item-titleee',on: {search(sb, query, previousQuery) {console.log(query, previousQuery);}}});">
+                        <div class="searchbar-inner">
+                            <div class="searchbar-input-wrap">
+                                <input type="search" placeholder="Search">
+                                <i class="searchbar-icon"></i>
+                                <span class="input-clear-button"></span>
+                            </div>
+                            <span class="searchbar-disable-button if-not-aurora">Cancel</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="page-content" id="categories">
+            <div class="searchbar-backdrop"></div>
+            <div class="col row category-col list list1 searchbar-found" style="margin:0; padding:0">
+
+              <ul class="col">
+                <li style="height: 20px"></li>
+                {{#each products}}
+                        <li class="item-content col-100 padding-left padding-right">
+
+                                <a class="col-100 margin-bottom elevation-16" href="#" style="display: block;height:200px; padding:0; width:100%;margin:0; display: block; border-radius: 10px; background-image:url(http://9142767578.myjino.ru{{img}}); -webkit-background-size: cover; position:relative;">
+                                    <h2 class="text-align-center item-titleee" style="color: white; background: rgba(0,0,0,0.7); padding-top: 10px; padding-bottom: 10px; position: absolute; bottom: 0px; width: 100%">{{name}}
+                                    </h2>
+                                </a>
+
+                        </li  >
+                {{/each}}
+                <li style="height: 50px"></li>
+                </ul>
+            </div>
+            <div class="block searchbar-not-found">
+                <div class="block-inner">Nothing found</div>
+            </div>
+        </div>
+</template>
+<script>
+    return {
+        data: function() {
+            return {
+                products: app.data.productList,
+            };
+        }
+    };
+</script>

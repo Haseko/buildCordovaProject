@@ -1,0 +1,76 @@
+<template>
+    <div class="page" data-name="catalog">
+        <div class="navbar">
+            <div class="navbar-inner sliding">
+                <div class="left">
+                    <a href="#" class="link back">
+                        <i class="icon icon-back"></i>
+                        <span class="ios-only">Back</span>
+                    </a>
+                </div>
+                <div class="title">{{id}}</div>
+            </div>
+        </div>
+        <div class="page-content">
+            {{#each category}}
+                <div class="card card-expandable" style="height: 200px">
+                    <div class="card-content">
+                        <div style="height: 200px; background-image: url({{url}}{{img}}); -webkit-background-size: cover">
+                            <div class="card-header text-color-white display-block no-padding-left no-padding-right" style="margin-left: -20px">
+                                <h4 class="text-align-center" style="color: white; background: rgba(255,59,48,0.8);padding-top: 7px; padding-bottom: 7px;"> {{name}} </h4>
+
+                                <br>
+                                <small style="opacity: 0.7"></small>
+                            </div>
+                            <a href="#" class="link card-close card-opened-fade-in color-white" style="position: absolute; right: 15px; top: 15px">
+                                <i class="icon f7-icons">close_round_fill</i>
+                            </a>
+                        </div>
+                        <div class="card-content-padding margin-left-half">
+                            <h3>{{title}}</h3>
+                            <h4>{{description}}</h4>
+                            <a href="#"
+                                class="button button-large button-fill"
+                                onclick="
+                                    app.data.cart = app.data.cart.concat([{{products}}]);
+                                    app.dialog.create({
+                                        title: 'Cart',
+                                        text: '{{name}} added to cart!',
+                                        buttons: [
+                                          {
+                                            text: 'Ok!',
+                                          }
+                                        ],
+                                    }).open();
+                                "
+                            >
+                                Add it to my cart!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>
+<script>
+    return {
+        data: function() {
+
+            let pr = [];
+
+            app.data.category[this.$route.params.id].recipes.forEach(function(v, i) {
+                app.data.recipeList[v].url = app.data.url;
+                pr.push(app.data.recipeList[v]);
+
+            })
+            console.log(pr);
+
+            return {
+                category: pr,
+                id: this.$route.params.id
+
+            };
+        }
+    };
+</script>

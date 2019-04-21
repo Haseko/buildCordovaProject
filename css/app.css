@@ -5,23 +5,14 @@
 .ios .tabbar-labels .tab-link.tab-link-active .icon:not(.icon-ios-fill) {
   display: none;
 }
-
-
-/* Cards css */
-
-.demo-card-header-pic .card-header {
-  height: 40vw;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
+.category-col .col-50 {
+	height: 150px;
 }
-.demo-card-header-pic .card-content-padding .date{
-  color: #8e8e93;
-}
-
-.rubric {
-
-    width: 40%;
-    height: 35vw;
-
+.category-col .col-50 h2{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+ }
+#app {
+	background: #efeff4;
 }
